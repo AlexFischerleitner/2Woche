@@ -19,28 +19,39 @@ import java.util.logging.Logger;
 public class NumberTester {
 
     String fileName;
-
+    private NumberTest oddTester;
+    private NumberTest primeTester;
+    private NumberTest palindromeTester;
     public NumberTester(String fileName) {
         this.fileName = fileName;
     }
 
-    public void setOddEvenTester(NumberTester oddTester) {
-
+    public void setOddEvenTester(NumberTest oddTester) {
+        this.oddTester = oddTester;
     }
 
-    public void setPrimeTester(NumberTester primeTester) {
-
+    public void setPrimeTester(NumberTest primeTester) {
+        this.primeTester = primeTester;
     }
 
-    public void setPalindromeTester(NumberTester palindromeTester) {
-
+    public void setPalindromeTester(NumberTest palindromeTester) {
+        this.palindromeTester = palindromeTester;
     }
 
     public void testFile() {
         try (BufferedReader br = new BufferedReader(new FileReader("number.txt"))) {
             String line = br.readLine();
             while(line!=null){
-                System.out.println(line);
+                String [] arr = line.split(" ");
+                if(Integer.parseInt(arr[0])== 1){
+                    System.out.println(arr[1]);
+                }else if(Integer.parseInt(arr[0])== 2){
+                    System.out.println(arr[1]);                    
+                }else if(Integer.parseInt(arr[0])== 1){
+                    System.out.println(arr[1]);
+                }else {
+                    System.out.println("Fehler");
+                }       
                 line = br.readLine();
             }
         } catch (FileNotFoundException ex) {
